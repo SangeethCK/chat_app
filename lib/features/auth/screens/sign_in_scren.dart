@@ -88,7 +88,7 @@ class SignInScren extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                CustomMaterialBtton(
+                CustomMaterialButton(
                   isLoading: state.isSignIn == ApiFetchStatus.loading,
                   onPressed: () {
                     final validationError = Helper.validatePhoneNumber(
@@ -96,7 +96,6 @@ class SignInScren extends StatelessWidget {
                     );
                     if (validationError != null) {
                       // Helper.showValidationError(context, validationError);
-                      
                     } else {
                       context.read<AuthBloc>().add(
                         SigInEvent(phoneController.text),

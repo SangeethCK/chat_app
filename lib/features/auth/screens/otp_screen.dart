@@ -298,7 +298,7 @@ class OtpScreenState extends State<OtpScreen> {
 
                 const Spacer(),
 
-                CustomMaterialBtton(
+                CustomMaterialButton(
                   onPressed: () {
                     _verifyOtp();
                   },

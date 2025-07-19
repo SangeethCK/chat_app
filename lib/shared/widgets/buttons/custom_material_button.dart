@@ -3,8 +3,8 @@ import 'package:chat_app/shared/theme/font_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomMaterialBtton extends StatelessWidget {
-  const CustomMaterialBtton({
+class CustomMaterialButton extends StatelessWidget {
+  const CustomMaterialButton({
     required this.onPressed,
     this.buttonText = 'Submit',
     this.textStyle,
@@ -27,6 +27,7 @@ class CustomMaterialBtton extends StatelessWidget {
     this.shimmer = false,
     this.shrinkWrap = false,
   });
+
   final Widget? child;
   final String buttonText;
   final Widget? leading;
@@ -47,64 +48,79 @@ class CustomMaterialBtton extends StatelessWidget {
   final Color? loadingColor;
   final bool shimmer;
   final bool shrinkWrap;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: margin ?? EdgeInsets.zero,
-      child: MaterialButton(
-        materialTapTargetSize: shrinkWrap
-            ? MaterialTapTargetSize.shrinkWrap
-            : MaterialTapTargetSize.padded,
+      child: Container(
         height: height,
-        minWidth: minWidth,
-        onPressed: !isLoading ? onPressed : () {},
-        color: color ?? kPrimaryColor,
-
-        splashColor: borderColor,
-        elevation: elevation,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(45.r),
-          side: BorderSide(color: borderColor ?? kPrimaryColor),
-        ),
-        child: SizedBox(
-          height: height,
-          child: isLoading
-              ? Center(
-                  child: SizedBox(
-                    height: height / 2,
-                    width: height / 2,
-                    child: CircularProgressIndicator(
-                      strokeWidth: 1.75,
-                      color: loadingColor,
-                    ),
-                  ),
+        width: minWidth,
+        decoration: BoxDecoration(
+          color: color,
+          gradient: color == null
+              ? LinearGradient(
+                  colors: [Color(0xFFE6446E), Color(0xFFFF80A1)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.topRight,
                 )
-              : child ??
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (leading != null) ...{
-                          5.horizontalSpace,
-                          leading!,
-                          5.horizontalSpace,
-                        },
-                        if (leading != null) 8.verticalSpace,
-                        Flexible(
-                          child: FittedBox(
-                            child: Text(
-                              buttonText,
-                              overflow: TextOverflow.ellipsis,
-                              style:
-                                  textStyle ??
-                                  FontPalette.hW500S14.copyWith(
-                                    color: textColor ?? kWhite,
-                                    letterSpacing: 0,
-                                  ),
+              : null,
+          borderRadius: BorderRadius.circular(45.r),
+        ),
+        child: MaterialButton(
+          materialTapTargetSize: shrinkWrap
+              ? MaterialTapTargetSize.shrinkWrap
+              : MaterialTapTargetSize.padded,
+          height: height,
+          minWidth: minWidth,
+          onPressed: !isLoading ? onPressed : null,
+          color: Colors.transparent,
+          disabledColor: Colors.transparent,
+          splashColor: Colors.white.withOpacity(0.2),
+          highlightColor: Colors.white.withOpacity(0.1),
+          elevation: elevation,
+          disabledElevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(45.r),
+            side: BorderSide.none,
+          ),
+          child: SizedBox(
+            height: height,
+            child: isLoading
+                ? Center(
+                    child: SizedBox(
+                      height: height / 2,
+                      width: height / 2,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 1.75,
+                        color: loadingColor,
+                      ),
+                    ),
+                  )
+                : child ??
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if (leading != null) ...{leading!, 8.horizontalSpace},
+                          Flexible(
+                            child: FittedBox(
+                              child: Text(
+                                buttonText,
+                                overflow: TextOverflow.ellipsis,
+                                style:
+                                    textStyle ??
+                                    FontPalette.hW500S14.copyWith(
+                                      color: textColor ?? kWhite,
+                                      fontSize: fontSize,
+                                      fontWeight: fontWeight,
+                                      letterSpacing: 0,
+                                    ),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
+          ),
         ),
       ),
     );

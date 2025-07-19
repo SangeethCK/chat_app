@@ -72,7 +72,7 @@ class SplashScreenState extends State<SplashScreen> {
                 textAlign: TextAlign.center,
               ),
               Spacer(),
-              CustomMaterialBtton(
+              CustomMaterialButton(
                 textColor: kBlack,
                 borderColor: kWhite,
                 color: kWhite,
@@ -81,7 +81,7 @@ class SplashScreenState extends State<SplashScreen> {
 
                 buttonText: 'Sign in with Google',
               ),
-              CustomMaterialBtton(
+              CustomMaterialButton(
                 borderColor: kBlueColor,
                 color: kBlueColor,
                 leading: SvgPicture.asset('assets/icons/Group.svg'),
@@ -89,7 +89,8 @@ class SplashScreenState extends State<SplashScreen> {
 
                 buttonText: 'Sign in with Facebook',
               ),
-              CustomMaterialBtton(
+              CustomMaterialButton(
+                // color: kPrimaryColor,
                 leading: Icon(Icons.call, color: kWhite),
                 onPressed: () {
                   Navigator.pushNamed(context, routeSigIn);
