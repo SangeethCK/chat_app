@@ -97,11 +97,34 @@ class SplashScreenState extends State<SplashScreen> {
 
                 buttonText: 'Sign in with phone number',
               ),
-              Text(
-                'By signing up, you agree to our Terms. See how we use your data in our Privacy Policy.',
+              RichText(
                 textAlign: TextAlign.center,
-                style: FontPalette.hW700S11.copyWith(color: kWhite),
+                text: TextSpan(
+                  text: 'By signing up, you agree to our ',
+                  style: FontPalette.hW700S11.copyWith(color: kWhite),
+                  children: [
+                    TextSpan(
+                      text: 'Terms.',
+                      style: FontPalette.hW700S12.copyWith(color: kWhite),
+                      children: [
+                        TextSpan(
+                          text: 'See how we use your data in our ',
+                          style: FontPalette.hW700S11.copyWith(color: kWhite),
+                          children: [
+                            TextSpan(
+                              text: 'Privacy Policy.',
+                              style: FontPalette.hW700S12.copyWith(
+                                color: kWhite,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
+
               25.verticalSpace,
             ],
           ),

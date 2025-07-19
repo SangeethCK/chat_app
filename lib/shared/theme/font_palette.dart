@@ -59,7 +59,8 @@ class FontPalette {
 
   static TextStyle get hW600S14 =>
       TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600, letterSpacing: 0);
-
+  static TextStyle get hW600S16 =>
+      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600, letterSpacing: 0);
   static TextStyle get hW600S20 =>
       TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600, letterSpacing: 0);
   static TextStyle get hW600S28 =>
@@ -69,7 +70,8 @@ class FontPalette {
 
   static TextStyle get hW700S13 =>
       TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w700, letterSpacing: 0);
-
+  static TextStyle get hW700S12 =>
+      TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w700, letterSpacing: 0);
   static TextStyle get hW400S13 =>
       TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w400, letterSpacing: 0);
 

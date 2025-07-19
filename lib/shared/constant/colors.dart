@@ -25,7 +25,6 @@ const kWarningColor = Color(0xFFFF9966);
 const kDeliverColor = Color(0xffF4CD41);
 const kGrey400 = Color(0XFF434A4A);
 
-const kLightColor = Color(0XFFEFF1F1);
 const kBorderColor = Color(0XFFF4F5F5);
 const kLightBorderColor = Color(0XFFDFE8E9);
 const kLightBorderE7 = Color(0XFFDFE9E7);
@@ -37,3 +36,7 @@ const kDarkBorder = Color(0XFFB7C6C2);
 const kHintColor = Color(0XFF666C6D);
 const kDefaulColor = Color(0xff434A49);
 const kDarkBorderColor = Color(0XFFCBD7D4);
+
+const kTextColor = Color(0XFF583E45);
+const kTextDrk = Color(0xFF2E0E16);
+const kLightColor = Color(0xFFF5F5F5);

@@ -8,6 +8,7 @@ CachedNetworkImage networkImage(
   double? height,
   double? width,
 }) => CachedNetworkImage(
+  fit: BoxFit.cover,
   height: height ?? 60.h,
   width: width ?? 60.w,
   imageUrl: image,
