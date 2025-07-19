@@ -40,9 +40,7 @@ class SignInScren extends StatelessWidget {
                 Center(
                   child: Text(
                     'Enter your phone \nnumber',
-                    style: FontPalette.hW600S28.copyWith(
-                      color: Color(0XFF2E0E16),
-                    ),
+                    style: FontPalette.hW600S28.copyWith(color: kTextDrk),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -83,9 +81,7 @@ class SignInScren extends StatelessWidget {
                 10.verticalSpace,
                 Text(
                   'Fliq will send you a text with a verification code.',
-                  style: FontPalette.hW400S14.copyWith(
-                    color: Color(0XFF583E45),
-                  ),
+                  style: FontPalette.hW400S14.copyWith(color: kLightText),
                 ),
                 Spacer(),
                 CustomMaterialButton(

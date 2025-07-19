@@ -157,9 +157,7 @@ class OtpScreenState extends State<OtpScreen> {
                 Center(
                   child: Text(
                     'Enter your verification \ncode',
-                    style: FontPalette.hW600S28.copyWith(
-                      color: const Color(0XFF2E0E16),
-                    ),
+                    style: FontPalette.hW600S28.copyWith(color: kTextDrk),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -170,11 +168,11 @@ class OtpScreenState extends State<OtpScreen> {
                     Padding(
                       padding: EdgeInsets.only(left: 12.w),
                       child: Text(
-                        '+91 ${_formatPhoneNumber(arguments?['mobile'] ?? '')}',
+                        '+91 ${_formatPhoneNumber(arguments?['mobile'] ?? '')}.',
                         style: FontPalette.hW500S12,
                       ),
                     ),
-
+                    3.horizontalSpace,
                     TextButton(
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
@@ -265,9 +263,7 @@ class OtpScreenState extends State<OtpScreen> {
                   children: [
                     Text(
                       'Didn\'t get anything? No worries, let\'s try again.',
-                      style: FontPalette.hW400S14.copyWith(
-                        color: Colors.grey[600],
-                      ),
+                      style: FontPalette.hW400S14.copyWith(color: kTextColor),
                       textAlign: TextAlign.center,
                     ),
                     if (_canResend)
@@ -282,16 +278,14 @@ class OtpScreenState extends State<OtpScreen> {
                         child: Text(
                           'Resend Code',
                           style: FontPalette.hW700S14.copyWith(
-                            color: kBlueColor,
+                            color: kLightBlue,
                           ),
                         ),
                       )
                     else
                       Text(
                         'Resend in ${_resendCountdown}s',
-                        style: FontPalette.hW400S14.copyWith(
-                          color: Colors.grey[500],
-                        ),
+                        style: FontPalette.hW400S14.copyWith(color: kTextColor),
                       ),
                   ],
                 ),

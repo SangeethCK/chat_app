@@ -40,4 +40,6 @@ const kDarkBorderColor = Color(0XFFCBD7D4);
 const kTextColor = Color(0XFF583E45);
 const kTextDrk = Color(0xFF2E0E16);
 const kLightColor = Color(0xFFF5F5F5);
-const kLightText=Color(0XFF583E45);
+const kLightText = Color(0XFF583E45);
+
+const kLightBlue = Color(0XFF4A90E2);
