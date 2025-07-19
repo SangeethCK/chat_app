@@ -131,7 +131,7 @@ class TextFeildWidget extends StatelessWidget {
             style:
                 textStyle ??
                 FontPalette.hW500S13.copyWith(
-                  color: fontColor,
+                  color: fontColor ?? kTextColor,
                   fontSize: fontSize ?? 15.sp,
                   fontWeight: FontWeight.w400,
                 ),

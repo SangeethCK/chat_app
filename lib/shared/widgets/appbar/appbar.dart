@@ -79,7 +79,7 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
     if (title != null) {
       return Text(
         title!,
-        style: (style ?? FontPalette.hW400S14).copyWith(color: titleColor),
+        style: (FontPalette.hW700S18).copyWith(color: kTextDrk),
         overflow: TextOverflow.ellipsis,
         textAlign: TextAlign.center,
       );
@@ -92,7 +92,7 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
     if (actionTitle != null) {
       return [
         TextButton(
-          onPressed: () {}, // Add your action callback
+          onPressed: () {},
           child: Text(
             actionTitle!,
             style: FontPalette.hW400S14.copyWith(color: iconColor ?? kBlack),

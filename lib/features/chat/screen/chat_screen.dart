@@ -208,6 +208,7 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                     ),
                   ),
                   hintText: 'Type a message...',
+                  hintStyle: FontPalette.hW400S13.copyWith(color: kTextColor),
                   onChanged: (value) {},
                 ),
               ),

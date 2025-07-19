@@ -1,5 +1,6 @@
 import 'package:chat_app/features/chat/bloc/chat_bloc.dart';
 import 'package:chat_app/features/home/bloc/home_bloc.dart';
+import 'package:chat_app/shared/constant/colors.dart';
 import 'package:chat_app/shared/constant/decorations.dart';
 import 'package:chat_app/shared/routes/routes.dart';
 import 'package:chat_app/shared/theme/font_palette.dart';
@@ -57,11 +58,7 @@ class HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      appBar: AppbarWidget(
-        title: 'Messages',
-        centerTitle: false,
-        style: FontPalette.hW700S16,
-      ),
+      appBar: AppbarWidget(title: 'Messages', centerTitle: false),
       body: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
           return FadeTransition(
@@ -87,7 +84,12 @@ class HomeScreenState extends State<HomeScreen>
                         14.verticalSpace,
                         Align(
                           alignment: Alignment.centerLeft,
-                          child: Text('Chat', style: FontPalette.hW600S12),
+                          child: Text(
+                            'Chat',
+                            style: FontPalette.hW600S12.copyWith(
+                              color: kTextDrk,
+                            ),
+                          ),
                         ),
                         8.verticalSpace,
                       ],
@@ -160,8 +162,9 @@ class HomeScreenState extends State<HomeScreen>
             4.verticalSpace,
             Text(
               user.name ?? '',
-              style: FontPalette.hW600S12.copyWith(
+              style: FontPalette.hW300S16.copyWith(
                 overflow: TextOverflow.ellipsis,
+                color: kTextDrk,
               ),
               maxLines: 1,
               textAlign: TextAlign.center,
@@ -182,7 +185,7 @@ class HomeScreenState extends State<HomeScreen>
           padding: const EdgeInsets.all(14.0),
           child: SvgPicture.asset(
             'assets/icons/search-favorite.svg',
-            colorFilter: ColorFilter.mode(Colors.grey[600]!, BlendMode.srcIn),
+            colorFilter: ColorFilter.mode(kTextColor, BlendMode.srcIn),
           ),
         ),
         hintText: 'Search',
@@ -235,7 +238,9 @@ class HomeScreenState extends State<HomeScreen>
                               Flexible(
                                 child: Text(
                                   user.name ?? '',
-                                  style: FontPalette.hW600S14,
+                                  style: FontPalette.hW600S14.copyWith(
+                                    color: kTextDrk,
+                                  ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
@@ -244,9 +249,8 @@ class HomeScreenState extends State<HomeScreen>
                                   user.messageReceivedFromPartnerAt ??
                                       DateTime.now(),
                                 ),
-                                style: TextStyle(
-                                  fontSize: 10.sp,
-                                  color: Colors.grey[500],
+                                style: FontPalette.hW400S10.copyWith(
+                                  color: kLightText,
                                 ),
                               ),
                             ],
