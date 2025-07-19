@@ -2,6 +2,8 @@ import 'package:chat_app/features/chat/bloc/chat_bloc.dart';
 import 'package:chat_app/features/home/bloc/home_bloc.dart';
 import 'package:chat_app/shared/constant/colors.dart';
 import 'package:chat_app/shared/constant/decorations.dart';
+import 'package:chat_app/shared/constant/images.dart';
+import 'package:chat_app/shared/constant/string/string_english.dart';
 import 'package:chat_app/shared/routes/routes.dart';
 import 'package:chat_app/shared/theme/font_palette.dart';
 import 'package:chat_app/shared/widgets/appbar/appbar.dart';
@@ -58,7 +60,7 @@ class HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      appBar: AppbarWidget(title: 'Messages', centerTitle: false),
+      appBar: AppbarWidget(title: StringConstants.title, centerTitle: false),
       body: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
           return FadeTransition(
@@ -85,7 +87,7 @@ class HomeScreenState extends State<HomeScreen>
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'Chat',
+                            StringConstants.chat,
                             style: FontPalette.hW600S12.copyWith(
                               color: kTextDrk,
                             ),
@@ -184,11 +186,11 @@ class HomeScreenState extends State<HomeScreen>
         suffixIcon: Padding(
           padding: const EdgeInsets.all(14.0),
           child: SvgPicture.asset(
-            'assets/icons/search-favorite.svg',
+            Assets.fav,
             colorFilter: ColorFilter.mode(kTextColor, BlendMode.srcIn),
           ),
         ),
-        hintText: 'Search',
+        hintText: StringConstants.search,
         onChanged: (value) {
           context.read<HomeBloc>().add(SearchUsersEvent(query: value));
         },

@@ -3,6 +3,8 @@ import 'package:chat_app/features/chat/screen/widgets/build_message_bubble.dart'
 import 'package:chat_app/features/chat/screen/widgets/chat_appbar.dart';
 import 'package:chat_app/shared/app/enums/api_fetch_status.dart';
 import 'package:chat_app/shared/constant/colors.dart';
+import 'package:chat_app/shared/constant/images.dart';
+import 'package:chat_app/shared/constant/string/string_english.dart';
 import 'package:chat_app/shared/theme/font_palette.dart';
 import 'package:chat_app/shared/widgets/shimmer/shimer_card.dart';
 import 'package:chat_app/shared/widgets/text_fields/text_field_widget.dart';
@@ -132,14 +134,14 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(Icons.chat_bubble_outline, size: 80.sp, color: Colors.grey[300]),
-          SizedBox(height: 20.h),
+          20.verticalSpace,
           Text(
-            'No messages yet',
+            StringConstants.nomessgae,
             style: FontPalette.hW600S16.copyWith(color: Colors.grey[600]),
           ),
-          SizedBox(height: 8.h),
+          8.verticalSpace,
           Text(
-            'Start the conversation!',
+            StringConstants.startConv,
             style: FontPalette.hW400S13.copyWith(color: Colors.grey[500]),
           ),
         ],
@@ -163,7 +165,7 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
         ],
       ),
       child: Text(
-        'Today',
+        StringConstants.today,
         style: FontPalette.hW400S10.copyWith(color: kTextColor),
       ),
     );
@@ -204,7 +206,7 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                               _sendMessage();
                             }
                           : null,
-                      child: SvgPicture.asset('assets/images/send.svg'),
+                      child: SvgPicture.asset(Assets.sendIn),
                     ),
                   ),
                   hintText: 'Type a message...',

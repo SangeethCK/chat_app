@@ -2,93 +2,62 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'chat_messgae_response.g.dart';
 
-// Flattened Chat Message Model (after Japx processing)
 @JsonSerializable()
 class ChatMessage {
   final String id;
-
-  // All attributes are now at root level after Japx flattening
   @JsonKey(name: 'chat_thread_id')
   final int? chatThreadId;
-
   @JsonKey(name: 'chat_message_type_id')
   final int? chatMessageTypeId;
-
   @JsonKey(name: 'sender_id')
   final int? senderId;
-
   @JsonKey(name: 'receiver_id')
   final int? receiverId;
-
   final String? message;
-
   @JsonKey(name: 'media_meta')
   final dynamic mediaMeta;
-
   @JsonKey(name: 'is_one_time_view')
   final bool? isOneTimeView;
-
   @JsonKey(name: 'is_read_receipts_on')
   final int? isReadReceiptsOn;
-
   @JsonKey(name: 'is_one_time_viewed_at')
   final DateTime? isOneTimeViewedAt;
-
   @JsonKey(name: 'is_on_vanish_mode')
   final bool? isOnVanishMode;
-
   @JsonKey(name: 'scheduled_at')
   final DateTime? scheduledAt;
-
   @JsonKey(name: 'sent_at')
   final DateTime? sentAt;
-
   @JsonKey(name: 'delivered_at')
   final DateTime? deliveredAt;
-
   @JsonKey(name: 'viewed_at')
   final DateTime? viewedAt;
-
   @JsonKey(name: 'sticker_id')
   final int? stickerId;
-
   @JsonKey(name: 'gift_order_id')
   final int? giftOrderId;
-
   @JsonKey(name: 'sender_coin_transaction_id')
   final int? senderCoinTransactionId;
-
   @JsonKey(name: 'receiver_coin_transaction_id')
   final int? receiverCoinTransactionId;
-
   @JsonKey(name: 'transfer_coins')
   final int? transferCoins;
-
   @JsonKey(name: 'deleted_for_sender_by')
   final int? deletedForSenderBy;
-
   @JsonKey(name: 'deleted_for_sender_at')
   final DateTime? deletedForSenderAt;
-
   @JsonKey(name: 'deleted_for_receiver_by')
   final int? deletedForReceiverBy;
-
   @JsonKey(name: 'deleted_for_receiver_at')
   final DateTime? deletedForReceiverAt;
-
   @JsonKey(name: 'created_at')
   final DateTime? createdAt;
-
   @JsonKey(name: 'updated_at')
   final DateTime? updatedAt;
-
   @JsonKey(name: 'deleted_at')
   final DateTime? deletedAt;
-
   @JsonKey(name: 'media_url')
   final String? mediaUrl;
-
-  // Relationship data (flattened by Japx)
   final Sender? sender;
   final Sticker? sticker;
   @JsonKey(name: 'gift_order')
@@ -133,7 +102,6 @@ class ChatMessage {
   Map<String, dynamic> toJson() => _$ChatMessageToJson(this);
 }
 
-// Sender Model (from included resources)
 @JsonSerializable()
 class Sender {
   final String id;
@@ -143,13 +111,10 @@ class Sender {
 
   @JsonKey(name: 'profile_photo_url')
   final String? profilePhotoUrl;
-
   @JsonKey(name: 'square100_profile_photo_url')
   final String? square100ProfilePhotoUrl;
-
   @JsonKey(name: 'square300_profile_photo_url')
   final String? square300ProfilePhotoUrl;
-
   @JsonKey(name: 'square500_profile_photo_url')
   final String? square500ProfilePhotoUrl;
 
@@ -171,11 +136,9 @@ class Sender {
   Map<String, dynamic> toJson() => _$SenderToJson(this);
 }
 
-// Sticker Model (if you have stickers)
 @JsonSerializable()
 class Sticker {
   final String id;
-  // Add sticker attributes as needed
 
   Sticker({required this.id});
 
@@ -184,34 +147,25 @@ class Sticker {
   Map<String, dynamic> toJson() => _$StickerToJson(this);
 }
 
-// Gift Order Model (if you have gift orders)
 @JsonSerializable()
 class GiftOrder {
   final String id;
-  // Add gift order attributes as needed
-
   GiftOrder({required this.id});
-
   factory GiftOrder.fromJson(Map<String, dynamic> json) =>
       _$GiftOrderFromJson(json);
   Map<String, dynamic> toJson() => _$GiftOrderToJson(this);
 }
 
-// Pagination Model
 @JsonSerializable()
 class Pagination {
   final int? total;
   final int? count;
-
   @JsonKey(name: 'per_page')
   final int? perPage;
-
   @JsonKey(name: 'current_page')
   final int? currentPage;
-
   @JsonKey(name: 'total_pages')
   final int? totalPages;
-
   Pagination({
     this.total,
     this.count,
@@ -225,7 +179,6 @@ class Pagination {
   Map<String, dynamic> toJson() => _$PaginationToJson(this);
 }
 
-// Links Model
 @JsonSerializable()
 class Links {
   final String? self;
@@ -238,7 +191,6 @@ class Links {
   Map<String, dynamic> toJson() => _$LinksToJson(this);
 }
 
-// Chat Messages Response Model
 @JsonSerializable()
 class ChatMessagesResponse {
   final List<ChatMessage> messages;

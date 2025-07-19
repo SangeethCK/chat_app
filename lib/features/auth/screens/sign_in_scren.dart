@@ -2,6 +2,8 @@ import 'package:chat_app/features/auth/bloc/auth_bloc.dart';
 import 'package:chat_app/shared/app/enums/api_fetch_status.dart';
 import 'package:chat_app/shared/app/helper.dart';
 import 'package:chat_app/shared/constant/colors.dart';
+import 'package:chat_app/shared/constant/images.dart';
+import 'package:chat_app/shared/constant/string/string_english.dart';
 import 'package:chat_app/shared/routes/routes.dart';
 import 'package:chat_app/shared/theme/font_palette.dart';
 import 'package:chat_app/shared/widgets/appbar/appbar.dart';
@@ -39,7 +41,7 @@ class SignInScren extends StatelessWidget {
               children: [
                 Center(
                   child: Text(
-                    'Enter your phone \nnumber',
+                    StringConstants.login,
                     style: FontPalette.hW600S28.copyWith(color: kTextDrk),
                     textAlign: TextAlign.center,
                   ),
@@ -60,8 +62,11 @@ class SignInScren extends StatelessWidget {
                     width: 80.w,
                     child: Row(
                       children: [
-                        SvgPicture.asset('assets/icons/cellphone.svg'),
-                        Text('+91', style: FontPalette.hW400S14),
+                        SvgPicture.asset(Assets.cellPhone),
+                        Text(
+                          StringConstants.countryCode,
+                          style: FontPalette.hW400S14,
+                        ),
                         Icon(
                           Icons.arrow_drop_down,
                           color: Color(0XFFD5CFD0),
@@ -75,12 +80,12 @@ class SignInScren extends StatelessWidget {
                       ],
                     ),
                   ),
-                  hintText: 'Enter mobile number',
+                  hintText: StringConstants.enterMobile,
                   hintStyle: FontPalette.hW500S16.copyWith(color: kHintColor),
                 ),
                 10.verticalSpace,
                 Text(
-                  'Fliq will send you a text with a verification code.',
+                  StringConstants.signText,
                   style: FontPalette.hW400S14.copyWith(color: kLightText),
                 ),
                 Spacer(),

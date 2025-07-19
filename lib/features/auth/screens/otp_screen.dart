@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:chat_app/features/auth/bloc/auth_bloc.dart';
 import 'package:chat_app/shared/app/enums/api_fetch_status.dart';
 import 'package:chat_app/shared/constant/colors.dart';
+import 'package:chat_app/shared/constant/string/string_english.dart';
 import 'package:chat_app/shared/routes/routes.dart';
 import 'package:chat_app/shared/theme/font_palette.dart';
 import 'package:chat_app/shared/utilities/auth/auth_utils.dart';
@@ -73,7 +74,7 @@ class OtpScreenState extends State<OtpScreen> {
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('New OTP sent to +91${arguments?['mobile'] ?? ''}'),
+        content: Text('${StringConstants.newOtp}${arguments?['mobile'] ?? ''}'),
         backgroundColor: Colors.green,
         duration: const Duration(seconds: 2),
       ),
@@ -91,8 +92,8 @@ class OtpScreenState extends State<OtpScreen> {
       HapticFeedback.mediumImpact();
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please enter complete 6-digit OTP'),
+        SnackBar(
+          content: Text(StringConstants.completeOTP),
           backgroundColor: Colors.red,
           duration: Duration(seconds: 2),
         ),
@@ -121,8 +122,8 @@ class OtpScreenState extends State<OtpScreen> {
           if (state.isVerify == ApiFetchStatus.success) {
             HapticFeedback.heavyImpact();
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('OTP verified successfully!'),
+              SnackBar(
+                content: Text(StringConstants.otpSucess),
                 backgroundColor: Colors.green,
                 duration: Duration(seconds: 1),
               ),
@@ -139,13 +140,13 @@ class OtpScreenState extends State<OtpScreen> {
               _enteredPin = '';
             });
 
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Invalid OTP. Please try again.'),
-                backgroundColor: Colors.red,
-                duration: Duration(seconds: 2),
-              ),
-            );
+            // ScaffoldMessenger.of(context).showSnackBar(
+            //   const SnackBar(
+            //     content: Text('Invalid OTP. Please try again.'),
+            //     backgroundColor: Colors.red,
+            //     duration: Duration(seconds: 2),
+            //   ),
+            // );
           }
         },
         builder: (context, state) {
@@ -156,7 +157,7 @@ class OtpScreenState extends State<OtpScreen> {
               children: [
                 Center(
                   child: Text(
-                    'Enter your verification \ncode',
+                    StringConstants.enterVerifcation,
                     style: FontPalette.hW600S28.copyWith(color: kTextDrk),
                     textAlign: TextAlign.center,
                   ),
@@ -168,7 +169,7 @@ class OtpScreenState extends State<OtpScreen> {
                     Padding(
                       padding: EdgeInsets.only(left: 12.w),
                       child: Text(
-                        '+91 ${_formatPhoneNumber(arguments?['mobile'] ?? '')}.',
+                        '${StringConstants.countryCode} ${_formatPhoneNumber(arguments?['mobile'] ?? '')}.',
                         style: FontPalette.hW500S12,
                       ),
                     ),
@@ -181,7 +182,7 @@ class OtpScreenState extends State<OtpScreen> {
                       ),
                       onPressed: () => Navigator.pop(context),
                       child: Text(
-                        'Edit',
+                        StringConstants.edit,
                         style: FontPalette.hW700S14.copyWith(
                           color: Color(0XFF2E0E16),
                         ),
@@ -256,38 +257,42 @@ class OtpScreenState extends State<OtpScreen> {
                     autofillHints: const [AutofillHints.oneTimeCode],
                   ),
                 ),
-                20.verticalSpace,
+                10.verticalSpace,
 
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Didn\'t get anything? No worries, let\'s try again.',
-                      style: FontPalette.hW400S14.copyWith(color: kTextColor),
-                      textAlign: TextAlign.center,
-                    ),
-                    if (_canResend)
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.r),
-                          ),
-                        ),
-                        onPressed: _resendOtp,
-                        child: Text(
-                          'Resend Code',
-                          style: FontPalette.hW700S14.copyWith(
-                            color: kLightBlue,
-                          ),
-                        ),
-                      )
-                    else
+                MainPadding(
+                  top: 0,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Text(
-                        'Resend in ${_resendCountdown}s',
+                        StringConstants.dontWorry,
                         style: FontPalette.hW400S14.copyWith(color: kTextColor),
+                        textAlign: TextAlign.center,
                       ),
-                  ],
+                      if (_canResend)
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                            minimumSize: Size.zero,
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          ),
+                          onPressed: _resendOtp,
+                          child: Text(
+                            StringConstants.resendCode,
+                            style: FontPalette.hW700S14.copyWith(
+                              color: kLightBlue,
+                            ),
+                          ),
+                        )
+                      else
+                        Text(
+                          '${StringConstants.sendIn} ${_resendCountdown}s',
+                          style: FontPalette.hW400S14.copyWith(
+                            color: kTextColor,
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
 
                 const Spacer(),
